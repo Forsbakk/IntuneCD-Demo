@@ -5,6 +5,11 @@ on:
     schedule:
       - cron: '0 20 * * *'
 
+env:
+    TENANT_NAME: ${{ secrets.TENANT_NAME }}
+    CLIENT_ID: ${{ secrets.CLIENT_ID }}
+    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+
 jobs: 
     back_up_configuration: 
         runs-on: ubuntu-latest
