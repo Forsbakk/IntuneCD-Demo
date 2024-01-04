@@ -10,6 +10,9 @@ env:
     CLIENT_ID: ${{ secrets.CLIENT_ID }}
     CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
+permissions:
+    contents: write
+
 jobs: 
     back_up_configuration: 
         runs-on: ubuntu-latest
