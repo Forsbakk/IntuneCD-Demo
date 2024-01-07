@@ -83,5 +83,4 @@ jobs:
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5
               with:
-                base: main
-                branch: ${{steps.get-date.outputs.date}}
+                base: ${{steps.get-date.outputs.date}}
