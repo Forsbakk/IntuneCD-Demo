@@ -80,9 +80,5 @@ jobs:
                     --tenantname=$TENANT_NAME \
                     --intro="$INTRO" \
 
-            - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v5
-              with:
-                base: main
-                branch: ${{steps.get-date.outputs.date}}
-                
+            - name: create pull request
+              run: gh pr create -B main -H ${{steps.get-date.outputs.date}} --title '${{steps.get-date.outputs.date}} - Backup of Intune configuration' --body 'Created by Github action'
