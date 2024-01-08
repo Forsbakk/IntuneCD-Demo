@@ -82,3 +82,5 @@ jobs:
 
             - name: create pull request
               run: gh pr create -B main -H ${{steps.get-date.outputs.date}} --title '${{steps.get-date.outputs.date}} - Backup of Intune configuration' --body 'Created by Github action'
+              env:
+                GH_TOKEN: ${{ github.token }}
