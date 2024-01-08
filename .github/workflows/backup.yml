@@ -9,6 +9,7 @@ env:
     TENANT_NAME: ${{ secrets.TENANT_NAME }}
     CLIENT_ID: ${{ secrets.CLIENT_ID }}
     CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    GH_TOKEN: ${{ github.token }}
 
 permissions:
     contents: write
@@ -59,7 +60,7 @@ jobs:
 
             - name: Commit config updates
               uses: stefanzweifel/git-auto-commit-action@v5
-              id: commit-doc
+              id: commit-cfg
               continue-on-error: true
               with:
                 commit_message: "Intune config backup ${{steps.get-date.outputs.date}}"
@@ -78,9 +79,18 @@ jobs:
                     --path="$GITHUB_WORKSPACE/prod-backup" \
                     --outpath="$GITHUB_WORKSPACE/prod-as-built.md" \
                     --tenantname=$TENANT_NAME \
-                    --intro="$INTRO" \
+                    --intro="$INTRO"
+
+            - name: Commit config updates
+              uses: stefanzweifel/git-auto-commit-action@v5
+              id: commit-doc
+              continue-on-error: true
+              with:
+                commit_message: "Intune documentation created ${{steps.get-date.outputs.date}}"
+                commit_user_name: ${{ secrets.COMMIT_NAME }}
+                commit_user_email: ${{ secrets.COMMIT_EMAIL }}
+                branch: ${{steps.get-date.outputs.date}}
+                create_branch: true                    
 
             - name: create pull request
               run: gh pr create -B main -H ${{steps.get-date.outputs.date}} --title '${{steps.get-date.outputs.date}} - Backup of Intune configuration' --body 'Created by Github action'
-              env:
-                GH_TOKEN: ${{ github.token }}
