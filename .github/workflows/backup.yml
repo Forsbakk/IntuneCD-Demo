@@ -84,3 +84,4 @@ jobs:
               uses: peter-evans/create-pull-request@v5
               with:
                 base: ${{steps.get-date.outputs.date}}
+                branch: ${{steps.get-date.outputs.date}}
