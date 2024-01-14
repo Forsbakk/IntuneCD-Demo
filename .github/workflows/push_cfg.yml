@@ -45,7 +45,7 @@ jobs:
               id: commit-doc
               continue-on-error: true
               with:
-                commit_message: "Intune documentation created $date [skip ci]"
+                commit_message: "Intune documentation created ${{ env.date }} [skip ci]"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
 
@@ -58,4 +58,3 @@ jobs:
             - name: create release
               if: steps.commit-doc.outputs.changes_detected == 'true'
               run: gh release create v${{ env.date }}-${{ env.sha_short }} --notes "Release created by GitHub Actions"
-              
