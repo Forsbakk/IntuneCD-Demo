@@ -4,7 +4,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 
 **Tenant:** M365x34075246.onmicrosoft.com 
 
-**Document updated on:** 08/01/2024 15:13:15 
+**Document updated on:** 14/01/2024 11:01:27 
 
 <a class="mk-toclify" id="table-of-contents"></a>
 
@@ -884,7 +884,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Windows10 Apps Force Update Schedule                        |                                              |
 |Enable Automatic Redeployment                               |False                                         |
 |Microsoft Account Sign In Assistant Settings                |notConfigured                                 |
-|Authentication Allow Secondary Device                       |False                                         |
+|Authentication Allow Secondary Device                       |True                                          |
 |Authentication Web Sign In                                  |notConfigured                                 |
 |Authentication Preferred Azure A D Tenant Domain Name       |                                              |
 |Cryptography Allow Fips Algorithm Policy                    |False                                         |
@@ -914,7 +914,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Search Enable Automatic Index Size Manangement              |False                                         |
 |Search Block Web Results                                    |False                                         |
 |Find My Files                                               |notConfigured                                 |
-|Security Block Azure A D Joined Devices Auto Encryption     |False                                         |
+|Security Block Azure A D Joined Devices Auto Encryption     |True                                          |
 |Diagnostics Data Submission Mode                            |userDefined                                   |
 |One Drive Disable File Sync                                 |True                                          |
 |System Telemetry Proxy Server                               |                                              |
@@ -1005,7 +1005,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Defender File Extensions To Exclude                         |                                              |
 |Defender Files And Folders To Exclude                       |                                              |
 |Defender Processes To Exclude                               |                                              |
-|Lock Screen Allow Timeout Configuration                     |False                                         |
+|Lock Screen Allow Timeout Configuration                     |True                                          |
 |Lock Screen Block Action Center Notifications               |False                                         |
 |Lock Screen Block Cortana                                   |False                                         |
 |Lock Screen Block Toast Notifications                       |False                                         |
@@ -1023,11 +1023,11 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Password Sign In Failure Count Before Factory Reset         |                                              |
 |Password Minimum Age In Days                                |                                              |
 |Privacy Advertising Id                                      |notConfigured                                 |
-|Privacy Auto Accept Pairing And Consent Prompts             |False                                         |
-|Privacy Disable Launch Experience                           |False                                         |
-|Privacy Block Input Personalization                         |False                                         |
-|Privacy Block Publish User Activities                       |False                                         |
-|Privacy Block Activity Feed                                 |False                                         |
+|Privacy Auto Accept Pairing And Consent Prompts             |True                                          |
+|Privacy Disable Launch Experience                           |True                                          |
+|Privacy Block Input Personalization                         |True                                          |
+|Privacy Block Publish User Activities                       |True                                          |
+|Privacy Block Activity Feed                                 |True                                          |
 |Activate Apps With Voice                                    |notConfigured                                 |
 |Start Block Unpinning Apps From Taskbar                     |False                                         |
 |Start Menu App List Visibility                              |userDefined                                   |
