@@ -58,3 +58,4 @@ jobs:
             - name: create release
               if: steps.commit-doc.outputs.changes_detected == 'true'
               run: gh release create v${{ env.date }}-${{ env.sha_short }} --notes "Release created by GitHub Actions"
+              
