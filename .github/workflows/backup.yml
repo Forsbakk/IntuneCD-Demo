@@ -55,9 +55,9 @@ jobs:
                 commit_message: "Intune config backup $date"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
-                branch: $date
+                branch: ${{ env.date }}
                 create_branch: true
 
             - name: create pull request
               if: steps.commit.outputs.changes_detected == 'true'
-              run: gh pr create -B main -H $date --title '$date - Backup of Intune configuration' --body 'Created by Github action'
+              run: gh pr create -B main -H ${{ env.date }} --title '${{ env.date }} - Backup of Intune configuration' --body 'Created by Github action'
