@@ -40,12 +40,6 @@ jobs:
                     --tenantname=$TENANT_NAME \
                     --intro="$INTRO"
 
-            - name: Declare variables
-              shell: bash
-              run: |
-                echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
-                echo "date=$(date +%Y.%m.%d)" >> "$GITHUB_ENV"
-
             - name: Commit documentation updates
               if: steps.create-doc.outputs.changes_detected == 'true'
               uses: stefanzweifel/git-auto-commit-action@v5
@@ -55,9 +49,13 @@ jobs:
                 commit_message: "Intune documentation created $date [skip ci]"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
-                branch: ${date}-${sha_short}
-                create_branch: true                    
+
+            - name: Declare variables
+              shell: bash
+              run: |
+                echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+                echo "date=$(date +%Y.%m.%d)" >> "$GITHUB_ENV"
 
             - name: create release
               if: steps.create-doc.outputs.changes_detected == 'true'
-              run: gh release create v${date}-${sha_short} --notes "Release created by GitHub Actions"
+              run: gh release create v${{ env.date }}-${{ env.sha_short }} --notes "Release created by GitHub Actions"
