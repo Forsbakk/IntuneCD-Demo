@@ -2,9 +2,9 @@
 
 Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <img align="right" width="96" height="96" src="./logo.png"> 
 
-**Tenant:** M365x34075246.onmicrosoft.com 
+**Tenant:** 824dffe5-78ac-43a3-af32-91ac63a5099f 
 
-**Document updated on:** 14/01/2024 11:01:27 
+**Document updated on:** 14/01/2024 12:52:45 
 
 <a class="mk-toclify" id="table-of-contents"></a>
 
@@ -52,6 +52,9 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
             - [Configuration](#configuration)
     - [Configuration Profiles](#configuration-profiles)
         - [iOS device restriction to block Game Center](#ios-device-restriction-to-block-game-center)
+            - [Assignments](#assignments)
+            - [Configuration](#configuration)
+        - [Updates Profile Win10 og 11](#updates-profile-win10-og-11)
             - [Assignments](#assignments)
             - [Configuration](#configuration)
         - [Win10-DeviceConfig-Restrictions](#win10-deviceconfig-restrictions)
@@ -848,6 +851,65 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Compliant Apps List                                  |                                              |
 |Network Usage Rules                                  |                                              |
 
+<a class="mk-toclify" id="updates-profile-win10-og-11"></a>
+### Updates Profile Win10 og 11
+[[back to top](#table-of-contents)]
+<a class="mk-toclify" id="assignments"></a>
+#### Assignments 
+[[back to top](#table-of-contents)]
+|intent|  target   |filter type|filter name|
+|------|-----------|-----------|-----------|
+|apply |All Users  |none       |           |
+|apply |All Devices|none       |           |
+
+<a class="mk-toclify" id="configuration"></a>
+#### Configuration 
+[[back to top](#table-of-contents)]
+|                    setting                     |                        value                         |
+|------------------------------------------------|------------------------------------------------------|
+|Odata type                                      |#microsoft.graph.windowsUpdateForBusinessConfiguration|
+|Role Scope Tag Ids                              |0<br/>                                                |
+|Device Management Applicability Rule Os Edition |                                                      |
+|Device Management Applicability Rule Os Version |                                                      |
+|Device Management Applicability Rule Device Mode|                                                      |
+|Display Name                                    |Updates Profile Win10 og 11                           |
+|Delivery Optimization Mode                      |userDefined                                           |
+|Prerelease Features                             |userDefined                                           |
+|Automatic Update Mode                           |autoInstallAndRebootWithoutEndUserControl             |
+|Microsoft Update Service Allowed                |True                                                  |
+|Drivers Excluded                                |False                                                 |
+|Installation Schedule                           |                                                      |
+|Quality Updates Deferral Period In Days         |                                                     0|
+|Feature Updates Deferral Period In Days         |                                                     0|
+|Quality Updates Paused                          |False                                                 |
+|Feature Updates Paused                          |False                                                 |
+|Quality Updates Pause Expiry Date Time          |0001-01-01T00:00:00Z                                  |
+|Feature Updates Pause Expiry Date Time          |0001-01-01T00:00:00Z                                  |
+|Business Ready Updates Only                     |windowsInsiderBuildFast                               |
+|Skip Checks Before Restart                      |False                                                 |
+|Update Weeks                                    |                                                      |
+|Quality Updates Pause Start Date                |                                                      |
+|Feature Updates Pause Start Date                |                                                      |
+|Feature Updates Rollback Window In Days         |                                                     3|
+|Quality Updates Will Be Rolled Back             |                                                      |
+|Feature Updates Will Be Rolled Back             |                                                      |
+|Quality Updates Rollback Start Date Time        |0001-01-01T00:00:00Z                                  |
+|Feature Updates Rollback Start Date Time        |0001-01-01T00:00:00Z                                  |
+|Engaged Restart Deadline In Days                |                                                      |
+|Engaged Restart Snooze Schedule In Days         |                                                      |
+|Engaged Restart Transition Schedule In Days     |                                                      |
+|Deadline For Feature Updates In Days            |                                                     1|
+|Deadline For Quality Updates In Days            |                                                     1|
+|Deadline Grace Period In Days                   |                                                     1|
+|Postpone Reboot Until After Deadline            |False                                                 |
+|Auto Restart Notification Dismissal             |notConfigured                                         |
+|Schedule Restart Warning In Hours               |                                                      |
+|Schedule Imminent Restart Warning In Minutes    |                                                      |
+|User Pause Access                               |disabled                                              |
+|User Windows Update Scan Access                 |disabled                                              |
+|Update Notification Level                       |disableAllNotifications                               |
+|Allow Windows11 Upgrade                         |True                                                  |
+
 <a class="mk-toclify" id="win10-deviceconfig-restrictions"></a>
 ### Win10-DeviceConfig-Restrictions
 [[back to top](#table-of-contents)]
@@ -902,7 +964,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Messaging Block Rich Communication Services                 |False                                         |
 |Printer Names                                               |                                              |
 |Printer Default Name                                        |                                              |
-|Printer Block Addition                                      |False                                         |
+|Printer Block Addition                                      |True                                          |
 |Search Block Diacritics                                     |False                                         |
 |Search Disable Auto Language Detection                      |False                                         |
 |Search Disable Indexing Encrypted Items                     |False                                         |
@@ -1006,9 +1068,9 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Defender Files And Folders To Exclude                       |                                              |
 |Defender Processes To Exclude                               |                                              |
 |Lock Screen Allow Timeout Configuration                     |True                                          |
-|Lock Screen Block Action Center Notifications               |False                                         |
-|Lock Screen Block Cortana                                   |False                                         |
-|Lock Screen Block Toast Notifications                       |False                                         |
+|Lock Screen Block Action Center Notifications               |True                                          |
+|Lock Screen Block Cortana                                   |True                                          |
+|Lock Screen Block Toast Notifications                       |True                                          |
 |Lock Screen Timeout In Seconds                              |                                              |
 |Lock Screen Activate Apps With Voice                        |notConfigured                                 |
 |Password Block Simple                                       |False                                         |
@@ -1033,17 +1095,17 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Start Menu App List Visibility                              |userDefined                                   |
 |Start Menu Hide Change Account Settings                     |False                                         |
 |Start Menu Hide Frequently Used Apps                        |False                                         |
-|Start Menu Hide Hibernate                                   |False                                         |
-|Start Menu Hide Lock                                        |False                                         |
-|Start Menu Hide Power Button                                |False                                         |
-|Start Menu Hide Recent Jump Lists                           |False                                         |
+|Start Menu Hide Hibernate                                   |True                                          |
+|Start Menu Hide Lock                                        |True                                          |
+|Start Menu Hide Power Button                                |True                                          |
+|Start Menu Hide Recent Jump Lists                           |True                                          |
 |Start Menu Hide Recently Added Apps                         |False                                         |
-|Start Menu Hide Restart Options                             |False                                         |
-|Start Menu Hide Shut Down                                   |False                                         |
-|Start Menu Hide Sign Out                                    |False                                         |
-|Start Menu Hide Sleep                                       |False                                         |
-|Start Menu Hide Switch Account                              |False                                         |
-|Start Menu Hide User Tile                                   |False                                         |
+|Start Menu Hide Restart Options                             |True                                          |
+|Start Menu Hide Shut Down                                   |True                                          |
+|Start Menu Hide Sign Out                                    |True                                          |
+|Start Menu Hide Sleep                                       |True                                          |
+|Start Menu Hide Switch Account                              |True                                          |
+|Start Menu Hide User Tile                                   |True                                          |
 |Start Menu Layout Edge Assets Xml                           |                                              |
 |Start Menu Layout Xml                                       |                                              |
 |Start Menu Mode                                             |userDefined                                   |
