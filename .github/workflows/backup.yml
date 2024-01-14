@@ -44,6 +44,7 @@ jobs:
             - name: Declare variables
               shell: bash
               run: |
+                echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
                 echo "date=$(date +%Y.%m.%d)" >> "$GITHUB_ENV"
       
 
@@ -55,9 +56,9 @@ jobs:
                 commit_message: "Intune config backup $date"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
-                branch: ${{ env.date }}
+                branch: "${{ env.date }}-${{ env.sha_short }}" 
                 create_branch: true
 
             - name: create pull request
               if: steps.commit.outputs.changes_detected == 'true'
-              run: gh pr create -B main -H ${{ env.date }} --title '${{ env.date }} - Backup of Intune configuration' --body 'Created by Github action'
+              run: gh pr create -B main -H ${{ env.date }}-${{ env.sha_short }} --title '${{ env.date }}-${{ env.sha_short }} - Backup of Intune configuration' --body 'Created by Github action'
