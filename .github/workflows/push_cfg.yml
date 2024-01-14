@@ -28,3 +28,44 @@ jobs:
               run: |
                 cd prod-backup
                 IntuneCD-startupdate -m 1 -p $GITHUB_WORKSPACE/prod-backup
+
+            - name: Generate markdown document
+              id: create-doc
+              shell: bash
+              run: |
+                INTRO="Endpoint Manager backup and documentation generated at $GITHUB_REPOSITORY <img align=\"right\" width=\"96\" height=\"96\" src=\"./logo.png\">"
+                IntuneCD-startdocumentation \
+                    --path="$GITHUB_WORKSPACE/prod-backup" \
+                    --outpath="$GITHUB_WORKSPACE/prod-as-built.md" \
+                    --tenantname=$TENANT_NAME \
+                    --intro="$INTRO"
+
+            - name: Get date
+              shell: bash
+              id: get-date
+              run: |
+                DATEF=`date +%Y.%m.%d`
+                echo "::set-output name=date::$DATEF"
+
+            - name: Commit config updates
+              if: steps.create-doc.outputs.changes_detected == 'true'
+              uses: stefanzweifel/git-auto-commit-action@v5
+              id: commit-doc
+              continue-on-error: true
+              with:
+                commit_message: "Intune documentation created ${{steps.get-date.outputs.date}} [skip ci]"
+                commit_user_name: ${{ secrets.COMMIT_NAME }}
+                commit_user_email: ${{ secrets.COMMIT_EMAIL }}
+                branch: ${{steps.get-date.outputs.date}}
+                create_branch: true                    
+
+            - name: Create tag
+              uses: actions/github-script@v5
+              with:
+                script: |
+                  github.rest.git.createRef({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    ref: 'refs/tags/${{steps.get-date.outputs.date}} - Snapshot',
+                    sha: context.sha
+                  })

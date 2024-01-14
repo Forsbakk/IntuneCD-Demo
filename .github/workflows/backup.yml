@@ -59,29 +59,6 @@ jobs:
                 branch: ${{steps.get-date.outputs.date}}
                 create_branch: true
 
-            - name: Generate markdown document
-              if: steps.commit.outputs.changes_detected == 'true'
-              id: create-doc
-              shell: bash
-              run: |
-                INTRO="Endpoint Manager backup and documentation generated at $GITHUB_REPOSITORY <img align=\"right\" width=\"96\" height=\"96\" src=\"./logo.png\">"
-                IntuneCD-startdocumentation \
-                    --path="$GITHUB_WORKSPACE/prod-backup" \
-                    --outpath="$GITHUB_WORKSPACE/prod-as-built.md" \
-                    --tenantname=$TENANT_NAME \
-                    --intro="$INTRO"
-
-            - name: Commit config updates
-              uses: stefanzweifel/git-auto-commit-action@v5
-              id: commit-doc
-              continue-on-error: true
-              with:
-                commit_message: "Intune documentation created ${{steps.get-date.outputs.date}}"
-                commit_user_name: ${{ secrets.COMMIT_NAME }}
-                commit_user_email: ${{ secrets.COMMIT_EMAIL }}
-                branch: ${{steps.get-date.outputs.date}}
-                create_branch: true                    
-
             - name: create pull request
               if: steps.commit.outputs.changes_detected == 'true'
               run: gh pr create -B main -H ${{steps.get-date.outputs.date}} --title '${{steps.get-date.outputs.date}} - Backup of Intune configuration' --body 'Created by Github action'
