@@ -1,0 +1,33 @@
+name: Push configuration
+
+on:
+    push:
+      branches:
+        - main
+
+env:
+    TENANT_NAME: ${{ secrets.TENANT_NAME }}
+    CLIENT_ID: ${{ secrets.CLIENT_ID }}
+    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    TAR_TENANT_NAME: ${{ secrets.TENANT_NAME }}
+    TAR_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+    TAR_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+    push_configuration:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v4
+              with:
+                ref: ${{ github.head_ref }}
+
+            - name: Install IntuneCD
+              run: |
+                pip3 install IntuneCD
+
+            - name: Run Update to target tenant
+              run: |
+                cd prod-backup
+                IntuneCD-startupdate -m 1 -p $GITHUB_WORKSPACE/prod-backup
