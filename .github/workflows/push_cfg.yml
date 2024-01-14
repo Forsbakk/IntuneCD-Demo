@@ -44,7 +44,7 @@ jobs:
               shell: bash
               run: |
                 echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
-                echo "date=$(echo date +%Y.%m.%d)" >> "$GITHUB_ENV"
+                echo "date=$(echo DATEF date +%Y.%m.%d)" >> "$GITHUB_ENV"
 
             - name: Commit documentation updates
               if: steps.create-doc.outputs.changes_detected == 'true'
