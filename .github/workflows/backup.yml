@@ -53,7 +53,7 @@ jobs:
               id: commit
               continue-on-error: true
               with:
-                commit_message: "Intune config backup $date"
+                commit_message: "Intune config backup ${{ env.date }}-${{ env.sha_short }}"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
                 branch: "${{ env.date }}-${{ env.sha_short }}" 

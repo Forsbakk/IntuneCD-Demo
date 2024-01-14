@@ -41,7 +41,6 @@ jobs:
                     --intro="$INTRO"
 
             - name: Commit documentation updates
-              if: steps.create-doc.outputs.changes_detected == 'true'
               uses: stefanzweifel/git-auto-commit-action@v5
               id: commit-doc
               continue-on-error: true
@@ -57,5 +56,5 @@ jobs:
                 echo "date=$(date +%Y.%m.%d)" >> "$GITHUB_ENV"
 
             - name: create release
-              if: steps.create-doc.outputs.changes_detected == 'true'
+              if: steps.commit-doc.outputs.changes_detected == 'true'
               run: gh release create v${{ env.date }}-${{ env.sha_short }} --notes "Release created by GitHub Actions"
