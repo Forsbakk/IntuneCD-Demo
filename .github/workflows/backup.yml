@@ -44,7 +44,7 @@ jobs:
             - name: Declare variables
               shell: bash
               run: |
-                echo "date=$(echo DATEF date +%Y.%m.%d)" >> "$GITHUB_ENV"
+                echo "date=$(date +%Y.%m.%d)" >> "$GITHUB_ENV"
       
 
             - name: Commit config updates
