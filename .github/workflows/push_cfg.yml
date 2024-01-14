@@ -6,12 +6,9 @@ on:
         - main
 
 env:
-    TENANT_NAME: ${{ secrets.TENANT_NAME }}
-    CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-    TAR_TENANT_NAME: ${{ secrets.TENANT_NAME }}
-    TAR_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    TAR_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    TENANT_NAME: ${{ secrets.TAR_TENANT_NAME }}
+    CLIENT_ID: ${{ secrets.TAR_CLIENT_ID }}
+    CLIENT_SECRET: ${{ secrets.TAR_CLIENT_SECRET }}
     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
