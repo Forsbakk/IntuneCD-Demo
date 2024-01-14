@@ -40,32 +40,24 @@ jobs:
                     --tenantname=$TENANT_NAME \
                     --intro="$INTRO"
 
-            - name: Get date
+            - name: Declare some variables
               shell: bash
-              id: get-date
               run: |
-                DATEF=`date +%Y.%m.%d`
-                echo "::set-output name=date::$DATEF"
+                echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+                echo "date=$(echo date +%Y.%m.%d)" >> "$GITHUB_ENV"
 
-            - name: Commit config updates
+            - name: Commit documentation updates
               if: steps.create-doc.outputs.changes_detected == 'true'
               uses: stefanzweifel/git-auto-commit-action@v5
               id: commit-doc
               continue-on-error: true
               with:
-                commit_message: "Intune documentation created ${{steps.get-date.outputs.date}} [skip ci]"
+                commit_message: "Intune documentation created $date [skip ci]"
                 commit_user_name: ${{ secrets.COMMIT_NAME }}
                 commit_user_email: ${{ secrets.COMMIT_EMAIL }}
-                branch: ${{steps.get-date.outputs.date}}
+                branch: ${date}-${sha_short}
                 create_branch: true                    
 
-            - name: Create tag
-              uses: actions/github-script@v5
-              with:
-                script: |
-                  github.rest.git.createRef({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    ref: 'refs/tags/${{steps.get-date.outputs.date}}',
-                    sha: context.sha
-                  })
+            - name: create release
+              if: steps.create-doc.outputs.changes_detected == 'true'
+              run: gh release create v${date}-${sha_short} --notes "Release created by GitHub Actions"
