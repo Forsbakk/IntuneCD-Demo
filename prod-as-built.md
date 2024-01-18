@@ -4,7 +4,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 
 **Tenant:** 824dffe5-78ac-43a3-af32-91ac63a5099f 
 
-**Document updated on:** 18/01/2024 14:26:27 
+**Document updated on:** 18/01/2024 16:29:02 
 
 <a class="mk-toclify" id="table-of-contents"></a>
 
@@ -1137,11 +1137,11 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Settings Block Gaming Page                                  |False                                         |
 |Windows Spotlight Block Consumer Specific Features          |False                                         |
 |Windows Spotlight Blocked                                   |False                                         |
-|Windows Spotlight Block On Action Center                    |False                                         |
+|Windows Spotlight Block On Action Center                    |True                                          |
 |Windows Spotlight Block Tailored Experiences                |False                                         |
 |Windows Spotlight Block Third Party Notifications           |False                                         |
 |Windows Spotlight Block Welcome Experience                  |False                                         |
-|Windows Spotlight Block Windows Tips                        |False                                         |
+|Windows Spotlight Block Windows Tips                        |True                                          |
 |Windows Spotlight Configure On Lock Screen                  |notConfigured                                 |
 |Network Proxy Apply Settings Device Wide                    |False                                         |
 |Network Proxy Disable Auto Detect                           |False                                         |
