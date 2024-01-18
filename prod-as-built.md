@@ -4,7 +4,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 
 **Tenant:** 824dffe5-78ac-43a3-af32-91ac63a5099f 
 
-**Document updated on:** 14/01/2024 14:16:56 
+**Document updated on:** 18/01/2024 14:22:56 
 
 <a class="mk-toclify" id="table-of-contents"></a>
 
@@ -894,9 +894,9 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Update Weeks                                    |                                                      |
 |Quality Updates Pause Start Date                |                                                      |
 |Feature Updates Pause Start Date                |                                                      |
-|Feature Updates Rollback Window In Days         |                                                     3|
-|Quality Updates Will Be Rolled Back             |                                                      |
-|Feature Updates Will Be Rolled Back             |                                                      |
+|Feature Updates Rollback Window In Days         |                                                    10|
+|Quality Updates Will Be Rolled Back             |False                                                 |
+|Feature Updates Will Be Rolled Back             |False                                                 |
 |Quality Updates Rollback Start Date Time        |0001-01-01T00:00:00Z                                  |
 |Feature Updates Rollback Start Date Time        |0001-01-01T00:00:00Z                                  |
 |Engaged Restart Deadline In Days                |                                                      |
