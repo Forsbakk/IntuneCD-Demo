@@ -4,7 +4,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 
 **Tenant:** 824dffe5-78ac-43a3-af32-91ac63a5099f 
 
-**Document updated on:** 18/01/2024 14:22:56 
+**Document updated on:** 18/01/2024 14:26:27 
 
 <a class="mk-toclify" id="table-of-contents"></a>
 
@@ -1172,7 +1172,7 @@ Endpoint Manager backup and documentation generated at Forsbakk/IntuneCD-Demo <i
 |Smart Screen Block Prompt Override                          |False                                         |
 |Smart Screen Block Prompt Override For Files                |False                                         |
 |Web Rtc Block Localhost Ip Address                          |False                                         |
-|Internet Sharing Blocked                                    |False                                         |
+|Internet Sharing Blocked                                    |True                                          |
 |Settings Block Add Provisioning Package                     |False                                         |
 |Settings Block Remove Provisioning Package                  |False                                         |
 |Settings Block Change System Time                           |False                                         |
