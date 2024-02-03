@@ -11,10 +11,34 @@
                          "intent": ""
                     }
                ],
+               "Device Configurations": [
+                    {
+                         "name": "iOS device restriction to block Game Center",
+                         "type": "iosGeneralDeviceConfiguration",
+                         "intent": "apply"
+                    }
+               ],
+               "App Protection": [
+                    {
+                         "name": "iOS apps data leak prevention policy",
+                         "type": "iosManagedAppProtection",
+                         "intent": ""
+                    },
+                    {
+                         "name": "Android apps data leak prevention policy",
+                         "type": "androidManagedAppProtection",
+                         "intent": ""
+                    }
+               ],
                "Applications": [
                     {
-                         "name": "Adobe Acrobat Reader for Intune Android (Deprecated)",
-                         "type": "androidStoreApp",
+                         "name": "Excel",
+                         "type": "iosStoreApp",
+                         "intent": "required"
+                    },
+                    {
+                         "name": "Word",
+                         "type": "iosStoreApp",
                          "intent": "required"
                     },
                     {
@@ -28,38 +52,14 @@
                          "intent": "required"
                     },
                     {
-                         "name": "Excel",
-                         "type": "iosStoreApp",
-                         "intent": "required"
-                    },
-                    {
                          "name": "OneDrive",
                          "type": "iosStoreApp",
                          "intent": "required"
                     },
                     {
-                         "name": "Word",
-                         "type": "iosStoreApp",
+                         "name": "Adobe Acrobat Reader for Intune Android (Deprecated)",
+                         "type": "androidStoreApp",
                          "intent": "required"
-                    }
-               ],
-               "Device Configurations": [
-                    {
-                         "name": "iOS device restriction to block Game Center",
-                         "type": "iosGeneralDeviceConfiguration",
-                         "intent": "apply"
-                    }
-               ],
-               "App Protection": [
-                    {
-                         "name": "Android apps data leak prevention policy",
-                         "type": "androidManagedAppProtection",
-                         "intent": ""
-                    },
-                    {
-                         "name": "iOS apps data leak prevention policy",
-                         "type": "iosManagedAppProtection",
-                         "intent": ""
                     }
                ]
           }
