@@ -11,6 +11,25 @@
                          "intent": ""
                     }
                ],
+               "App Protection": [
+                    {
+                         "name": "iOS apps data leak prevention policy",
+                         "type": "iosManagedAppProtection",
+                         "intent": ""
+                    },
+                    {
+                         "name": "Android apps data leak prevention policy",
+                         "type": "androidManagedAppProtection",
+                         "intent": ""
+                    }
+               ],
+               "Device Configurations": [
+                    {
+                         "name": "iOS device restriction to block Game Center",
+                         "type": "iosGeneralDeviceConfiguration",
+                         "intent": "apply"
+                    }
+               ],
                "Applications": [
                     {
                          "name": "Adobe Acrobat Reader for Intune Android (Deprecated)",
@@ -23,17 +42,12 @@
                          "intent": "required"
                     },
                     {
-                         "name": "Outlook",
-                         "type": "iosStoreApp",
-                         "intent": "required"
-                    },
-                    {
                          "name": "Excel",
                          "type": "iosStoreApp",
                          "intent": "required"
                     },
                     {
-                         "name": "OneDrive",
+                         "name": "Outlook",
                          "type": "iosStoreApp",
                          "intent": "required"
                     },
@@ -41,25 +55,11 @@
                          "name": "Word",
                          "type": "iosStoreApp",
                          "intent": "required"
-                    }
-               ],
-               "Device Configurations": [
-                    {
-                         "name": "iOS device restriction to block Game Center",
-                         "type": "iosGeneralDeviceConfiguration",
-                         "intent": "apply"
-                    }
-               ],
-               "App Protection": [
-                    {
-                         "name": "Android apps data leak prevention policy",
-                         "type": "androidManagedAppProtection",
-                         "intent": ""
                     },
                     {
-                         "name": "iOS apps data leak prevention policy",
-                         "type": "iosManagedAppProtection",
-                         "intent": ""
+                         "name": "OneDrive",
+                         "type": "iosStoreApp",
+                         "intent": "required"
                     }
                ]
           }
